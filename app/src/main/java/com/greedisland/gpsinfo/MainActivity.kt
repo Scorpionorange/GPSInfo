@@ -2,9 +2,11 @@ package com.greedisland.gpsinfo
 
 import android.content.Context
 import android.content.Intent
+import android.location.Location
 import android.location.LocationManager
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.location.LocationListener
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,15 +15,24 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getLocation() {
-        val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
-        //val location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
-        val hasGPS = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
-        val hasNetwork = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
-        if (hasGPS || hasNetwork) {
+        val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager?
+        //使用匿名内部类创建了LocationListener的实例
+        val locationListener = object : LocationListener {
+            override fun onLocationChanged(location: Location?) {
+                var latitute = location!!.latitude
+                var longitute = location!!.longitude
+            }
 
-        }else{
+            fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
+            }
 
+            fun onProviderEnabled(provider: String?) {
+            }
+
+            fun onProviderDisabled(provider: String?) {
+            }
         }
+
     }
 
 }
