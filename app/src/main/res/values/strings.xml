@@ -1,8 +1,15 @@
 <resources>
     <string name="app_name">GPSInfo</string>
-    <string name="fetch_Location">Fetch Location</string>
-    <string name="tvHeader">GPS Info</string>
-    <string name="location">Using Location in your app has incredible potential in making your app
-        seem intelligent to end users. With location data, your app can predict a user’s potential actions,
-        recommend actions, or perform actions in the background without user interaction.</string>
+    <string name="latitude_label">Latitude: %f</string>
+    <string name="longitude_label">Longitude: %f</string>
+    <string name="no_location_detected">
+        No location detected. Make sure location is enabled on the device.
+    </string>
+    <string name="permission_denied_explanation">
+        Permission was denied, but is needed for core functionality.
+    </string>
+    <string name="permission_rationale">
+        Location permission is needed for core functionality
+    </string>
+    <string name="settings">Settings</string>
 </resources>
